@@ -1,0 +1,67 @@
+import random as rm
+
+#Simple Rock Paper Scissors Game
+
+
+rpsTuple = 'R', 'P', 'S'
+
+computer = rpsTuple[rm.randint(0, 2)]
+
+player = False
+playerScore = 0
+computerScore = 0
+
+name = input("Enter your name:")
+print("{0} , Enjoy playing Rock,Paper,Scissors".format(name))
+print("If you wish to quit enter Q")
+
+while not player or player == "Q":
+    player = input("R for Rock, P for Paper or S for Scissors:")
+
+    if player == computer:
+        print("Its a tie!!")
+        print("You selected {0}, Computer selected {1}".format(player, computer))
+    elif player == "R":
+        print("{0}, You win!".format(name))
+        print("You selected {0}, Computer selected {1}".format(player, computer))
+        playerScore += 1
+    elif computer == "R":
+        print("Computer wins!")
+        print("You selected {0}, Computer selected {1}".format(player, computer))
+        computerScore += 1
+    elif player == "S":
+        if computer == "P":
+            print("{0}, You win!".format(name))
+            print("You selected {0}, Computer selected {1}".format(player, computer))
+            playerScore += 1
+        else:
+            print("Computer wins!")
+            print("You selected {0}, Computer selected {1}".format(player, computer))
+            computerScore += 1
+    elif player == "P":
+        if computer == "S":
+            print("Computer wins!")
+            print("You selected {0}, Computer selected {1}".format(player, computer))
+            computerScore += 1
+        else:
+            print("{0}, You win!".format(name))
+            print("You selected {0}, Computer selected {1}".format(player, computer))
+            playerScore += 1
+    elif player == "Q":
+        print("{0} You choose to quit Bye!!".format(name))
+        print("Scorecard")
+        print("---------")
+        print("{0} : {1}".format(name, playerScore))
+        print("Computer : {0}".format(computerScore))
+        if playerScore > computerScore:
+            print("You are the WINNER!!")
+        elif playerScore == computerScore:
+            print("Its a tie!!")
+        else:
+            print("Better luck next time")
+        break
+    else:
+        print("Invalid Input")
+
+    player = False
+    computer = rpsTuple[rm.randint(0, 2)]
