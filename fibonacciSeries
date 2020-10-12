@@ -1,0 +1,15 @@
+def func_fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return func_fibonacci(n - 1) + func_fibonacci(n - 2)
+
+
+terms = int(input("Enter the number of terms"))
+# check if the number of terms is valid 
+if terms <= 0:
+    print("Please enter a positive integer")
+else:
+    print("Fibonacci sequence:")
+    for i in range(terms):
+        print(func_fibonacci(i))
